@@ -128,25 +128,42 @@ LinkedListNode * Functions::Delete(LinkedListNode * head, int id)
 
 LinkedListNode * Functions::Delete(LinkedListNode * head, std::string name)
 {
+	LinkedListNode* temp = head; 
+
+	//Check if node is at the beginning of the list: 
 	if (head->name == name)
 	{
 		head = head->next;
+		free(temp); 
+
+		std::cout << "Deleted " << name << "." << std::endl;
+		std::cout << std::endl;
+
 		return head;
 	}
 
-	LinkedListNode* temp = head;
-
+	//Otherwise, traverse through the linked list: 
 	while (temp != NULL)
 	{
-		if (temp->next->name == name)
+		//If node is found, delete it and return the head of the list: 
+		if (temp->next != NULL && temp->next->name == name)
 		{
 			LinkedListNode* toDelete = temp->next;
 			temp->next = temp->next->next;
 			free(toDelete);
+
+			std::cout << "Deleted " << name << "." << std::endl;
+			std::cout << std::endl;
+
+			return head; 
 		}
 
 		temp = temp->next;
 	}
+
+	//If node is not found, display result to the user: 
+	std::cout << "Name " << name << " not found" << std::endl;
+	std::cout << std::endl;
 
 	return head;
 }
