@@ -1,3 +1,10 @@
+/*
+  Megan Chipman
+  COP 3502 - Computer Science I
+  Assignment 1 (Re-Programmed)
+  October 10, 2018
+*/
+
 #pragma once
 #include <string>
 

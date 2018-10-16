@@ -1,3 +1,10 @@
+/*
+  Megan Chipman 
+  COP 3502 - Computer Science I
+  Assignment 1 (Re-Programmed)
+  October 10, 2018
+*/
+
 #include "stdafx.h"
 #include "Functions.h"
 
@@ -11,6 +18,12 @@ Functions::~Functions()
 {
 }
 
+/*
+Pre-Conditions:  Takes in the head of a linked list as a parameter.
+Post-Conditions: Reads in the contents of a comma delimited file, 
+				 creates a linked list of its contents, and returns
+                 the head of the linked list: 
+*/
 LinkedListNode* Functions::ReadFile(LinkedListNode * head)
 {
 	//Declare and Initialize Variables: 
@@ -29,11 +42,16 @@ LinkedListNode* Functions::ReadFile(LinkedListNode * head)
 		head = Insert(head, name, id); 
 	}
 
+	//Close File: 
 	file.close();
 
 	return head;
 }
 
+/*
+Pre-Conditions:  None.
+Post-Conditions: Displays operations menu to the user.
+*/
 void Functions::Menu()
 {
 	std::cout << "List Operations" << std::endl; 
@@ -46,6 +64,11 @@ void Functions::Menu()
 	std::cout << std::endl; 
 }
 
+/*
+Pre-Conditions:  Takes in the head of a linked list, a string, and an integer.
+Post-Conditions: Creates a new node in the linked list using provided parameters, 
+				 and returns the head of the list. 
+*/
 LinkedListNode* Functions::Insert(LinkedListNode * head, std::string name, int id)
 {
 	
@@ -72,6 +95,10 @@ LinkedListNode* Functions::Insert(LinkedListNode * head, std::string name, int i
 	return head;
 }
 
+/*
+Pre-Conditions:  Takes in the head of a linked list as a parameter.
+Post-Conditions: Displays the contents of the linked list to the user.
+*/
 void Functions::DisplayList(LinkedListNode * head)
 {
 	LinkedListNode* temp = head; 
@@ -87,6 +114,11 @@ void Functions::DisplayList(LinkedListNode * head)
 	std::cout << std::endl; 
 }
 
+/*
+Pre-Conditions:  Takes in the head of a linked list and an integer as parameters.
+Post-Conditions: Deletes the specified node using the integer provided, and returns
+				 the head of the linked list.
+*/
 LinkedListNode * Functions::Delete(LinkedListNode * head, int id)
 {
 	LinkedListNode* temp = head; 
@@ -126,6 +158,11 @@ LinkedListNode * Functions::Delete(LinkedListNode * head, int id)
 	return head; 
 }
 
+/*
+Pre-Conditions:  Takes in the head of a linked list and a string as parameters.
+Post-Conditions: Deletes the specified node using the string provided, and returns
+				 the head of the linked list.
+*/
 LinkedListNode * Functions::Delete(LinkedListNode * head, std::string name)
 {
 	LinkedListNode* temp = head; 
