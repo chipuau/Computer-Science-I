@@ -136,7 +136,7 @@ LinkedListNode * Functions::Delete(LinkedListNode * head, std::string name)
 		head = head->next;
 		free(temp); 
 
-		std::cout << "Deleted " << name << "." << std::endl;
+		std::cout << name << "." << std::endl;
 		std::cout << std::endl;
 
 		return head;
