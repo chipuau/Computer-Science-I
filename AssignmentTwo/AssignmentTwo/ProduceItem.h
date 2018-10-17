@@ -6,6 +6,7 @@ October 17, 2018
 */
 
 #pragma once
+#include <string>
 
 class ProduceItem
 {
