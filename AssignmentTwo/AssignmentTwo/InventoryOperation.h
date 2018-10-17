@@ -13,5 +13,7 @@ class InventoryOperation
 		InventoryOperation();
 		~InventoryOperation();
 		static void DisplayMenu(); 
+		static ProduceItem* StockInventory(ProduceItem* head); 
+		static ProduceItem* CreateProduceItem(ProduceItem* head, std::string produce, std::string type, std::string soldBy, float price, int quantityInStock); 
 };
 

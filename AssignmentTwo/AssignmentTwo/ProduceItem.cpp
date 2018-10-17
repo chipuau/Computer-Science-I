@@ -16,6 +16,7 @@ ProduceItem::ProduceItem(std::string produce, std::string type, std::string sold
 	this->soldBy = soldBy; 
 	this->price = price; 
 	this->quantityInStock = quantityInStock; 
+	this->next = NULL; 
 }
 
 
