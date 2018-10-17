@@ -57,7 +57,7 @@ ProduceItem * InventoryOperation::StockInventory(ProduceItem * head)
 		quantityInStock = std::stoi(quantityInStockString); 
 
 		//Create a Node Using the Gathered Information: 
-		//PLACEHOLDER FOR NODE INSERTION: 
+		head = CreateProduceItem(head, produce, type, soldBy, price, quantityInStock); 
 	}
 
 	return head;
