@@ -41,6 +41,8 @@ ProduceItem * InventoryOperation::StockInventory(ProduceItem * head)
 	float price = 0.00; 
 	int quantityInStock = 0; 
 
+	std::cout << "Stocking Inventory..." << std::endl; 
+
 	//Open File: 
 	std::ifstream file; 
 	file.open("AssignmentTwoInput.txt"); 
@@ -59,6 +61,9 @@ ProduceItem * InventoryOperation::StockInventory(ProduceItem * head)
 		//Create a Node Using the Gathered Information: 
 		head = CreateProduceItem(head, produce, type, soldBy, price, quantityInStock); 
 	}
+
+	std::cout << "Stock Complete." << std::endl; 
+	std::cout << std::endl; 
 
 	return head;
 }
