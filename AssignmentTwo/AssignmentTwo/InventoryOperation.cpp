@@ -18,6 +18,10 @@ InventoryOperation::~InventoryOperation()
 {
 }
 
+/*
+ Pre-Conditions: None.
+ Post-Conditions: Displays a list of available operations to the user.
+*/
 void InventoryOperation::DisplayMenu()
 {
 	std::cout << "List of Operations:" << std::endl;
