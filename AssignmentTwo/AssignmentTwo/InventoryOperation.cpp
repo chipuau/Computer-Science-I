@@ -108,29 +108,47 @@ ProduceItem * InventoryOperation::CreateProduceItem(ProduceItem * head, std::str
 */
 void InventoryOperation::DisplayInventory(ProduceItem * head)
 {
-	//Declare and Initialize Variables: 
-	ProduceItem* temp = head;
-
-	std::cout << "Displaying Inventory..." << std::endl; 
-	std::cout << std::endl; 
-
-	std::cout << std::setw(15) << std::left << "PRODUCE" << std::setw(15) << std::left << "TYPE" << 
-		std::setw(15) << std::left << "SOLD BY" << std::setw(15) << std::left << "PRICE" << std::setw(15) << 
-		std::left << "QUANTITY IN STOCK" << std::endl; 
-
-	std::cout << "=============================================================================" << std::endl; 
-
-	//Traverse through the linked list, printing data as you go: 
-	while (temp != NULL)
+	//Check if the list is empty:
+	if (head == NULL)
 	{
-		std::cout << std::setw(15) << std::left << temp->produce << std::setw(15) << std::left << temp->type <<
-			std::setw(15) << std::left << temp->soldBy << std::setw(15) << std::left << temp->price << std::setw(15) <<
-			std::left << temp->quantityInStock << std::endl;
-
-		temp = temp->next; 
+		std::cout << "There are no items in the inventory." << std::endl; 
 	}
 
-	std::cout << std::endl; 
-	std::cout << "Display Complete." << std::endl; 
-	std::cout << std::endl; 
+	else
+	{
+		//Declare and Initialize Variables: 
+		ProduceItem* temp = head;
+
+		std::cout << "Displaying Inventory..." << std::endl;
+		std::cout << std::endl;
+
+		std::cout << std::setw(15) << std::left << "PRODUCE" << std::setw(15) << std::left << "TYPE" <<
+			std::setw(15) << std::left << "SOLD BY" << std::setw(15) << std::left << "PRICE" << std::setw(15) <<
+			std::left << "QUANTITY IN STOCK" << std::endl;
+
+		std::cout << "=============================================================================" << std::endl;
+
+		//Traverse through the linked list, printing data as you go: 
+		while (temp != NULL)
+		{
+			std::cout << std::setw(15) << std::left << temp->produce << std::setw(15) << std::left << temp->type <<
+				std::setw(15) << std::left << temp->soldBy << std::setw(15) << std::left << temp->price << std::setw(15) <<
+				std::left << temp->quantityInStock << std::endl;
+
+			temp = temp->next;
+		}
+
+		std::cout << std::endl;
+		std::cout << "Display Complete." << std::endl;
+		std::cout << std::endl;
+	}
+}
+
+/*
+ Pre-Conditions: Takes in the head of a linked list as a parameter.
+ Post-Conditions: Recursively reverses the list, and returns the head of the reversed list.
+*/
+ProduceItem * InventoryOperation::ReverseList(ProduceItem * head)
+{
+	return head;
 }
