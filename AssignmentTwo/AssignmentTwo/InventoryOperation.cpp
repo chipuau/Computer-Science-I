@@ -112,6 +112,7 @@ void InventoryOperation::DisplayInventory(ProduceItem * head)
 	if (head == NULL)
 	{
 		std::cout << "There are no items in the inventory." << std::endl; 
+		std::cout << std::endl; 
 	}
 
 	else
@@ -148,7 +149,40 @@ void InventoryOperation::DisplayInventory(ProduceItem * head)
  Pre-Conditions: Takes in the head of a linked list as a parameter.
  Post-Conditions: Recursively reverses the list, and returns the head of the reversed list.
 */
-ProduceItem * InventoryOperation::ReverseList(ProduceItem * head)
+void InventoryOperation::ReverseList(ProduceItem ** head)
 {
-	return head;
+	//Check to make sure that the list is not empty:
+	if (*head == NULL)
+	{
+		std::cout << "There are no items in the inventory." << std::endl; 
+		return;
+	}
+
+	//If the list is not empty, begin recursion: 
+	else
+	{
+		ReverseOperation(*head, NULL, head);
+	}
+
+}
+
+/*
+ Pre-Conditions: Takes in a pointer to the current item, a pointer to the previous item, and the head of the linked list.
+ Post-Conditions: Performs the recursion used to reverse the linked list.
+*/
+void InventoryOperation::ReverseOperation(ProduceItem * current, ProduceItem * previous, ProduceItem ** head)
+{
+	//Check if the current node is the last in the original list. If so, set the head of the list to the current node. 
+	if (current->next == NULL)
+	{
+		*head = current; 
+		current->next = previous; 
+		return; 
+	}
+
+	//Otherwise, make the current node point to the previous node, and continue with recursion. 
+	ProduceItem* next = current->next; 
+	current->next = previous; 
+
+	ReverseOperation(next, current, head); 
 }
