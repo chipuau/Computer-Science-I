@@ -191,6 +191,10 @@ void InventoryOperation::ReverseOperation(ProduceItem * current, ProduceItem * p
 	ReverseOperation(next, current, head); 
 }
 
+/*
+ Pre-Conditions: Takes in a pointer to the head of the inventory list.
+ Post-Conditions: Exports the contents of the list to a file labeled "ExportedInventory.txt."
+*/
 void InventoryOperation::ExportInventory(ProduceItem * head)
 {
 	//Declare and Initialize Variables: 
