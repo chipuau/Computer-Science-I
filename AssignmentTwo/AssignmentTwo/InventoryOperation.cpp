@@ -161,8 +161,12 @@ void InventoryOperation::ReverseList(ProduceItem ** head)
 	//If the list is not empty, begin recursion: 
 	else
 	{
+		std::cout << "Reversing List..." << std::endl; 
 		ReverseOperation(*head, NULL, head);
 	}
+
+	std::cout << "Reverse Complete." << std::endl; 
+	std::cout << std::endl; 
 
 }
 
@@ -185,4 +189,36 @@ void InventoryOperation::ReverseOperation(ProduceItem * current, ProduceItem * p
 	current->next = previous; 
 
 	ReverseOperation(next, current, head); 
+}
+
+void InventoryOperation::ExportInventory(ProduceItem * head)
+{
+	//Declare and Initialize Variables: 
+	ProduceItem* temp = head; 
+	std::ofstream file("ExportedInventory.txt"); 
+
+	std::cout << "Exporting Inventory..." << std::endl; 
+
+	//Print Header to the Export File: 
+	file << std::setw(15) << std::left << "PRODUCE" << std::setw(15) << std::left << "TYPE" <<
+		std::setw(15) << std::left << "SOLD BY" << std::setw(15) << std::left << "PRICE" << std::setw(15) <<
+		std::left << "QUANTITY IN STOCK" << std::endl;
+
+	file << "=============================================================================" << std::endl;
+
+	//Traverse through the linked list, printing data as you go: 
+	while (temp != NULL)
+	{
+		file << std::setw(15) << std::left << temp->produce << std::setw(15) << std::left << temp->type <<
+			std::setw(15) << std::left << temp->soldBy << std::setw(15) << std::left << temp->price << std::setw(15) <<
+			std::left << temp->quantityInStock << std::endl;
+
+		temp = temp->next;
+	}
+
+	//Close the output stream: 
+	file.close();
+
+	std::cout << "Export Complete." << std::endl; 
+	std::cout << std::endl; 
 }
