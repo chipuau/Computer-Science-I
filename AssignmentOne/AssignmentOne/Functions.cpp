@@ -127,7 +127,7 @@ LinkedListNode * Functions::Delete(LinkedListNode * head, int id)
 	if (head->id == id)
 	{ 
 		head = head->next; 
-		free(temp); 
+		delete temp; 
 
 		return head; 
 	}
@@ -140,7 +140,7 @@ LinkedListNode * Functions::Delete(LinkedListNode * head, int id)
 		{
 			LinkedListNode* toDelete = temp->next; 
 			temp->next = temp->next->next; 
-			free(toDelete); 
+			delete toDelete; 
 			
 			std::cout << "Deleted ID " << id << std::endl; 
 			std::cout << std::endl; 
@@ -171,7 +171,7 @@ LinkedListNode * Functions::Delete(LinkedListNode * head, std::string name)
 	if (head->name == name)
 	{
 		head = head->next;
-		free(temp); 
+		delete temp; 
 
 		std::cout << name << "." << std::endl;
 		std::cout << std::endl;
