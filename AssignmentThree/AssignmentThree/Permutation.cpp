@@ -19,11 +19,11 @@ Permutation::~Permutation()
 {
 }
 
-void Permutation::doPermutation(std::string word, int start)
+void Permutation::doPermutation(std::string word, int start, std::ofstream &outputFile)
 {
 	if (start == word.length())
 	{
-		std::cout << word << std::endl; 
+		outputFile << word << std::endl; 
 	}
 
 	else
@@ -31,7 +31,7 @@ void Permutation::doPermutation(std::string word, int start)
 		for (int i = start; i < word.length(); i++)
 		{
 			word = Swap(word, start, i); 
-			doPermutation(word, start+1); 
+			doPermutation(word, start+1, outputFile); 
 			word = Swap(word, i, start); 
 		}
 	}

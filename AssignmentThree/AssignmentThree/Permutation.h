@@ -14,7 +14,7 @@ class Permutation
 	public:
 		Permutation();
 		~Permutation();
-		static void doPermutation(std::string word, int start);
+		static void doPermutation(std::string word, int start, std::ofstream &outputFile);
 
 	private: 
 		static std::string Swap(std::string word, int letter1, int letter2); 
