@@ -19,6 +19,10 @@ Permutation::~Permutation()
 {
 }
 
+/*
+ Pre-Conditions: Takes in a string, an integer, and an output file pointer as parameters.
+ Post-Conditions: Prints permutations of the given string to the specified output file.
+*/
 void Permutation::doPermutation(std::string word, int start, std::ofstream &outputFile)
 {
 	if (start == word.length())
@@ -37,6 +41,11 @@ void Permutation::doPermutation(std::string word, int start, std::ofstream &outp
 	}
 }
 
+/*
+ Pre-Conditions: Takes in a string and two integers as paramters
+ Post-Conditions: Swaps the characters located at each integer in the given string 
+                  and returns the new word
+*/
 std::string Permutation::Swap(std::string word, int letter1, int letter2)
 {
 	char temp = word[letter1]; 
