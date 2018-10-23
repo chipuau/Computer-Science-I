@@ -20,5 +20,6 @@ class BSTOperations
 		static void InOrder(BSTNode* root); 
 		static void PostOrder(BSTNode * root); 
 		static void BreadthFirst(BSTNode * root); 
+		static void FindValue(BSTNode * root, int value); 
 };
 

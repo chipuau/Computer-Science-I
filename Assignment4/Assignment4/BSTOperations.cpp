@@ -202,3 +202,36 @@ void BSTOperations::BreadthFirst(BSTNode * root)
 	}
 	
 }
+
+/*
+ Pre-Conditions: Takes in the root of a binary search tree and an integer value.
+ Post-Conditions: Searches for the integer value and tells user whether or not it was found. 
+*/
+void BSTOperations::FindValue(BSTNode * root, int value)
+{
+	//If the root is the node being searched for, indicate it and return: 
+	if (root->data == value)
+	{
+		std::cout << "Node Found" << std::endl;
+		std::cout << std::endl;
+		return; 
+	}
+
+	//Otherwise, if the value is less than the root data, traverse left: 
+	else if (root->data > value && root->left != NULL)
+	{
+		FindValue(root->left, value); 
+	}
+
+	//Otherwise, if the value is greater than the root data, traverse right: 
+	else if (root->data < value && root->right != NULL)
+	{
+		FindValue(root->right, value); 
+	}
+
+	//If the node is not found, indicate it to the user: 
+	else
+	{
+		std::cout << "Node Not Found" << std::endl; 
+	}
+}
