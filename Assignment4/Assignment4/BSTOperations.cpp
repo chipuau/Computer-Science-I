@@ -43,3 +43,54 @@ void BSTOperations::DisplayMenu()
 	std::cout << std::endl;
 
 }
+
+BSTNode* BSTOperations::GenerateBST(BSTNode * root)
+{
+	//Declare and Initialize Variables:
+	int data = 0; 
+	std::string dataString = "";
+
+	//Open the file containing node data: 
+	std::ifstream file; 
+	file.open("AssignmentFourInput.txt");
+
+	std::cout << "Generating Binary Search Tree..." << std::endl; 
+
+	while (!getline(file, dataString, ',').eof())
+	{
+		data = std::stoi(dataString);
+		root = AddNode(root, data); 
+	}
+
+	//Close File: 
+	file.close();
+
+	std::cout << "Binary Search Tree Generated" << std::endl;
+	std::cout << std::endl; 
+
+	return root; 
+}
+
+BSTNode* BSTOperations::AddNode(BSTNode * root, int data)
+{
+	//If the BST is empty, set the new node as the root: 
+	if (root == NULL)
+	{
+		root = new BSTNode(data); 
+		return root; 
+	}
+
+	//If the data is less than the root data, traverse left:  
+	else if (root->data > data)
+	{
+		AddNode(root->left, data);
+	}
+
+	//If the data is greater than the root data, traverse right: 
+	else
+	{
+		AddNode(root->right, data); 
+	}
+
+	return root; 
+}

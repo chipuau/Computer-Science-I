@@ -6,6 +6,7 @@ October 21, 2018
 */
 
 #pragma once
+#include "BSTNode.h"
 
 class BSTOperations
 {
@@ -13,5 +14,7 @@ class BSTOperations
 		BSTOperations();
 		~BSTOperations();
 		static void DisplayMenu(); 
+		static BSTNode* GenerateBST(BSTNode* root);
+		static BSTNode* AddNode(BSTNode* root, int data); 
 };
 
