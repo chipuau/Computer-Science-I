@@ -72,25 +72,39 @@ BSTNode* BSTOperations::GenerateBST(BSTNode * root)
 }
 
 BSTNode* BSTOperations::AddNode(BSTNode * root, int data)
-{
+{ 
+
 	//If the BST is empty, set the new node as the root: 
 	if (root == NULL)
 	{
 		root = new BSTNode(data); 
-		return root; 
+		return root;
 	}
 
 	//If the data is less than the root data, traverse left:  
 	else if (root->data > data)
 	{
-		AddNode(root->left, data);
+		root->left = AddNode(root->left, data);
 	}
 
 	//If the data is greater than the root data, traverse right: 
 	else
 	{
-		AddNode(root->right, data); 
+		root->right = AddNode(root->right, data); 
 	}
 
 	return root; 
+
+}
+
+void BSTOperations::PreOrder(BSTNode * root)
+{
+	if (root == NULL)
+	{
+		return;
+	}
+
+	std::cout << root->data << " "; 
+	PreOrder(root->left); 
+	PreOrder(root->right); 
 }

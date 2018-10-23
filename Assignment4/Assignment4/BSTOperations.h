@@ -16,5 +16,6 @@ class BSTOperations
 		static void DisplayMenu(); 
 		static BSTNode* GenerateBST(BSTNode* root);
 		static BSTNode* AddNode(BSTNode* root, int data); 
+		static void PreOrder(BSTNode* root); 
 };
 
