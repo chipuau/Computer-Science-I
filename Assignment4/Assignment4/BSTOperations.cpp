@@ -44,6 +44,11 @@ void BSTOperations::DisplayMenu()
 
 }
 
+/*
+ Pre-Conditions: Takes in the root of a binary search tree. 
+ Post-Conditions: Generates a binary search tree using an input file and
+                  returns the root of the new tree. 
+*/
 BSTNode* BSTOperations::GenerateBST(BSTNode * root)
 {
 	//Declare and Initialize Variables:
@@ -56,6 +61,7 @@ BSTNode* BSTOperations::GenerateBST(BSTNode * root)
 
 	std::cout << "Generating Binary Search Tree..." << std::endl; 
 
+	//Create new nodes using the data: 
 	while (!getline(file, dataString, ',').eof())
 	{
 		data = std::stoi(dataString);
@@ -71,6 +77,11 @@ BSTNode* BSTOperations::GenerateBST(BSTNode * root)
 	return root; 
 }
 
+/*
+ Pre-Conditions: Takes in the root of a binary search tree and an integer
+ Post-Conditions: Creates a new node with the integer parameter and places it
+                  appropriately in the binary search tree. 
+*/
 BSTNode* BSTOperations::AddNode(BSTNode * root, int data)
 { 
 
@@ -94,49 +105,71 @@ BSTNode* BSTOperations::AddNode(BSTNode * root, int data)
 	}
 
 	return root; 
-
 }
 
+/*
+ Pre-Conditions: Takes in the root of a binary search tree 
+ Post-Conditions: Prints the Pre-Order Traversal of the binary search tree
+*/
 void BSTOperations::PreOrder(BSTNode * root)
 {
+	//Check if the node is empty. If so, return:
 	if (root == NULL)
 	{
 		return;
 	}
 
+	//Print root data, traverse left, then traverse right: 
 	std::cout << root->data << " "; 
 	PreOrder(root->left); 
 	PreOrder(root->right); 
 }
 
+/*
+Pre-Conditions: Takes in the root of a binary search tree
+Post-Conditions: Prints the In-Order Traversal of the binary search tree
+*/
 void BSTOperations::InOrder(BSTNode * root)
 {
+	//Check if the root is empty. If so, return. 
 	if (root == NULL)
 	{
 		return;
 	}
 
+	//Traverse left, print root data, then traverse right: 
 	InOrder(root->left); 
 	std::cout << root->data << " "; 
 	InOrder(root->right); 
 
 }
 
+/*
+Pre-Conditions: Takes in the root of a binary search tree
+Post-Conditions: Prints the Post-Order Traversal of the binary search tree
+*/
 void BSTOperations::PostOrder(BSTNode * root)
 {
+	//Check if the root is empty. If so, return: 
 	if (root == NULL)
 	{
 		return; 
 	}
 
+	//Traverse left, traverse right, then print root data: 
 	PostOrder(root->left); 
 	PostOrder(root->right); 
 	std::cout << root->data << " "; 
 
 }
 
+/*
+Pre-Conditions: Takes in the root of a binary search tree
+Post-Conditions: Prints the Breadth First Traversal of the binary search tree
+*/
 void BSTOperations::BreadthFirst(BSTNode * root)
 {
+	//Check if the root is empty. If so, return: 
 	if (root == NULL)
 	{
 		return; 
@@ -144,9 +177,11 @@ void BSTOperations::BreadthFirst(BSTNode * root)
 
 	else
 	{
+		//Create a queue to store nodes by level: 
 		std::queue<BSTNode*> queue;
 		queue.push(root); 
 
+		//Print the front of the queue, then add its children to the queue: 
 		while (!queue.empty())
 		{
 			std::cout << queue.front()->data << " ";
@@ -161,6 +196,7 @@ void BSTOperations::BreadthFirst(BSTNode * root)
 				queue.push(queue.front()->right); 
 			}
 			
+			//Pop the current node off of the queue: 
 			queue.pop();
 		}
 	}
