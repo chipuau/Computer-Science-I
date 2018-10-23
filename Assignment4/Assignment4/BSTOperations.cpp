@@ -134,3 +134,35 @@ void BSTOperations::PostOrder(BSTNode * root)
 	std::cout << root->data << " "; 
 
 }
+
+void BSTOperations::BreadthFirst(BSTNode * root)
+{
+	if (root == NULL)
+	{
+		return; 
+	}
+
+	else
+	{
+		std::queue<BSTNode*> queue;
+		queue.push(root); 
+
+		while (!queue.empty())
+		{
+			std::cout << queue.front()->data << " ";
+
+			if (queue.front()->left != NULL)
+			{
+				queue.push(queue.front()->left);
+			}
+			
+			if (queue.front()->right != NULL)
+			{
+				queue.push(queue.front()->right); 
+			}
+			
+			queue.pop();
+		}
+	}
+	
+}
