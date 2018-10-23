@@ -108,3 +108,16 @@ void BSTOperations::PreOrder(BSTNode * root)
 	PreOrder(root->left); 
 	PreOrder(root->right); 
 }
+
+void BSTOperations::InOrder(BSTNode * root)
+{
+	if (root == NULL)
+	{
+		return;
+	}
+
+	InOrder(root->left); 
+	std::cout << root->data << " "; 
+	InOrder(root->right); 
+
+}
