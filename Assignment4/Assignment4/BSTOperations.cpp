@@ -121,3 +121,16 @@ void BSTOperations::InOrder(BSTNode * root)
 	InOrder(root->right); 
 
 }
+
+void BSTOperations::PostOrder(BSTNode * root)
+{
+	if (root == NULL)
+	{
+		return; 
+	}
+
+	PostOrder(root->left); 
+	PostOrder(root->right); 
+	std::cout << root->data << " "; 
+
+}

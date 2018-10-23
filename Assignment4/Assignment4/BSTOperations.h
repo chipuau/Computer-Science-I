@@ -18,5 +18,6 @@ class BSTOperations
 		static BSTNode* AddNode(BSTNode* root, int data); 
 		static void PreOrder(BSTNode* root); 
 		static void InOrder(BSTNode* root); 
+		static void PostOrder(BSTNode * root); 
 };
 
