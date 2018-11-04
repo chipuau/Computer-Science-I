@@ -308,17 +308,16 @@ Post-Conditions: Returns an integer representing the median of the nodes in a bi
 */
 int BSTOperations::FindMedian(BSTNode * root)
 {
-	//1. Find num nodes
-	//2. Sort in In-Order Traversal
-	//3. Use num nodes to calculate index and find value
- 
 	std::vector<int> nodeValues;
 
+	//Calculate the Median Index: 
 	int numNodes = FindNumNodes(root); 
 	int medianIndex = numNodes / 2;
 
+	//Gather In-Order Traversal of Tree: 
 	MakeInOrder(root, nodeValues); 
 
+	//Determine Median and Return It: 
 	if (numNodes % 2 == 0)
 	{
 		return (nodeValues[medianIndex] + nodeValues[medianIndex + 1]) / 2; 
@@ -344,6 +343,74 @@ void BSTOperations::MakeInOrder(BSTNode * root, std::vector<int>& nodeValues)
 	MakeInOrder(root->left, nodeValues); 
 	nodeValues.push_back(root->data); 
 	MakeInOrder(root->right, nodeValues); 
+}
+
+/*
+ Pre-Conditions: Takes in the root of a linked list and a value to delete.
+ Post-Conditions: Deletes the specified node from the binary search tree. 
+*/
+BSTNode* BSTOperations::Delete(BSTNode * root, int value)
+{
+	//If root is NULL, return it: 
+	if (root == NULL)
+	{
+		return root; 
+	}
+
+	//Traverse left to find the value to delete: 
+	if (value < root->data)
+	{
+		root->left = Delete(root->left, value); 
+	}
+
+	//Traverse right to find the value to delete: 
+	else if (value > root->data)
+	{
+		root->right = Delete(root->right, value);
+	}
+
+	//Otherwise, the node has been found: 
+	else
+	{
+		//If the root only has a right child, replace it with the right
+		//and delete the right node: 
+		if (root->left == NULL)
+		{
+			BSTNode* temp = root; 
+			root = root->right; 
+			delete temp;
+			return root; 
+		}
+
+		//If the root only has a left child replace it with the left
+		//and delete the left node: 
+		else if (root->right == NULL)
+		{
+			BSTNode* temp = root; 
+			root = root->left; 
+			delete temp; 
+			return root;
+		}
+
+		//Replace the root with the smallest node, then
+		//readjust the tree: 
+		BSTNode* temp = MinNode(root);
+		root->data = temp->data; 
+		root->right = Delete(root->right, temp->data); 
+
+	}
+
+	return root; 
+}
+
+BSTNode * BSTOperations::MinNode(BSTNode * root)
+{
+	if (root->left == NULL)
+	{
+		return root;
+	}
+
+	return MinNode(root->left);
 }
 
 

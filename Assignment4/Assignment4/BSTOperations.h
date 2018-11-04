@@ -28,6 +28,8 @@ class BSTOperations
 		static int FindNumNodes(BSTNode * root); 
 		static float FindAverage(BSTNode * root); 
 		static int FindMedian(BSTNode * root); 
-		static void MakeInOrder(BSTNode* root, std::vector<int>& nodeValues); 
+		static void MakeInOrder(BSTNode* root, std::vector<int>& nodeValues);
+		static BSTNode* Delete(BSTNode * root, int value); 
+		static BSTNode* MinNode(BSTNode* root); 
 };
 
