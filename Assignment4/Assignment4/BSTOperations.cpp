@@ -330,6 +330,10 @@ int BSTOperations::FindMedian(BSTNode * root)
 	}
 }
 
+/*
+Pre-Conditions: Takes in the root of a binary search tree and a vector.
+Post-Conditions: Adds data to a vector In-Order. 
+*/
 void BSTOperations::MakeInOrder(BSTNode * root, std::vector<int>& nodeValues)
 {
 	if (root == NULL)
