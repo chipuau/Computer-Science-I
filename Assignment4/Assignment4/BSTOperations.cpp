@@ -265,5 +265,19 @@ int BSTOperations::FindMax(BSTNode * root)
 	return FindMax(root->right);
 }
 
+/*
+Pre-Conditions: Takes in the root of a binary search tree.
+Post-Conditions: Returns an integer representing the sum of the nodes in a binary search tree.
+*/
+int BSTOperations::FindSum(BSTNode * root)
+{
+	if (root == NULL)
+	{
+		return 0; 
+	}
+	
+	return root->data + FindSum(root->left) + FindSum(root->right); 
+}
+
 
 
