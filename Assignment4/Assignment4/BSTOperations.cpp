@@ -236,3 +236,20 @@ void BSTOperations::FindValue(BSTNode * root, int value)
 		std::cout << std::endl; 
 	}
 }
+
+/*
+Pre-Conditions: Takes in the root of a binary search tree.
+Post-Conditions: Returns an integer representing the min value of the binary search tree.
+*/
+int BSTOperations::FindMin(BSTNode * root)
+{
+	if (root->left == NULL)
+	{
+		return root->data; 
+	}
+
+	return FindMin(root->left);
+}
+
+
+

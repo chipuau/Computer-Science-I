@@ -21,5 +21,6 @@ class BSTOperations
 		static void PostOrder(BSTNode * root); 
 		static void BreadthFirst(BSTNode * root); 
 		static void FindValue(BSTNode * root, int value); 
+		static int FindMin(BSTNode * root); 
 };
 
