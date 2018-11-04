@@ -302,5 +302,51 @@ float BSTOperations::FindAverage(BSTNode * root)
 	return FindSum(root) / FindNumNodes(root);
 }
 
+/*
+Pre-Conditions: Takes in the root of a binary search tree.
+Post-Conditions: Returns an integer representing the median of the nodes in a binary search tree.
+*/
+int BSTOperations::FindMedian(BSTNode * root)
+{
+	//1. Find num nodes
+	//2. Sort in In-Order Traversal
+	//3. Use num nodes to calculate index and find value
+ 
+	std::vector<int> nodeValues;
+
+	int numNodes = FindNumNodes(root); 
+	int medianIndex = numNodes / 2;
+
+	MakeInOrder(root, nodeValues); 
+
+	if (numNodes % 2 == 0)
+	{
+		return (nodeValues[medianIndex] + nodeValues[medianIndex + 1]) / 2; 
+	}
+
+	else
+	{
+		return (nodeValues[medianIndex + 1]);
+	}
+}
+
+void BSTOperations::MakeInOrder(BSTNode * root, std::vector<int>& nodeValues)
+{
+	if (root == NULL)
+	{
+		return; 
+	}
+
+	MakeInOrder(root->left, nodeValues); 
+	nodeValues.push_back(root->data); 
+	MakeInOrder(root->right, nodeValues); 
+}
+
+
+
+
+
+
+
 
 

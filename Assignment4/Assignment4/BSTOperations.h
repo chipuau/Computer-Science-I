@@ -7,6 +7,7 @@ October 21, 2018
 
 #pragma once
 #include "BSTNode.h"
+#include <vector>
 
 class BSTOperations
 {
@@ -26,5 +27,7 @@ class BSTOperations
 		static int FindSum(BSTNode * root);
 		static int FindNumNodes(BSTNode * root); 
 		static float FindAverage(BSTNode * root); 
+		static int FindMedian(BSTNode * root); 
+		static void MakeInOrder(BSTNode* root, std::vector<int>& nodeValues); 
 };
 
