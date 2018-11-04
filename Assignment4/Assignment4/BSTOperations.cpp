@@ -233,5 +233,6 @@ void BSTOperations::FindValue(BSTNode * root, int value)
 	else
 	{
 		std::cout << "Node Not Found" << std::endl; 
+		std::cout << std::endl; 
 	}
 }
