@@ -279,5 +279,19 @@ int BSTOperations::FindSum(BSTNode * root)
 	return root->data + FindSum(root->left) + FindSum(root->right); 
 }
 
+/*
+Pre-Conditions: Takes in the root of a binary search tree.
+Post-Conditions: Returns an integer representing the number of nodes in a binary search tree.
+*/
+int BSTOperations::FindNumNodes(BSTNode * root)
+{
+	if (root == NULL)
+	{
+		return 0; 
+	}
+
+	return 1 + FindNumNodes(root->left) + FindNumNodes(root->right);
+}
+
 
 

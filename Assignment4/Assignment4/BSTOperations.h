@@ -23,6 +23,8 @@ class BSTOperations
 		static void FindValue(BSTNode * root, int value); 
 		static int FindMin(BSTNode * root); 
 		static int FindMax(BSTNode * root); 
-		static int FindSum(BSTNode * root); 
+		static int FindSum(BSTNode * root);
+		static int FindNumNodes(BSTNode * root); 
+
 };
 
