@@ -293,5 +293,14 @@ int BSTOperations::FindNumNodes(BSTNode * root)
 	return 1 + FindNumNodes(root->left) + FindNumNodes(root->right);
 }
 
+/*
+Pre-Conditions: Takes in the root of a binary search tree.
+Post-Conditions: Returns an integer representing the average of the nodes in a binary search tree.
+*/
+float BSTOperations::FindAverage(BSTNode * root)
+{
+	return FindSum(root) / FindNumNodes(root);
+}
+
 
 

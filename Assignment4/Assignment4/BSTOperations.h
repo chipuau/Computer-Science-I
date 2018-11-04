@@ -25,6 +25,6 @@ class BSTOperations
 		static int FindMax(BSTNode * root); 
 		static int FindSum(BSTNode * root);
 		static int FindNumNodes(BSTNode * root); 
-
+		static float FindAverage(BSTNode * root); 
 };
 
