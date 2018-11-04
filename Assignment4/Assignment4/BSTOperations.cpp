@@ -251,5 +251,19 @@ int BSTOperations::FindMin(BSTNode * root)
 	return FindMin(root->left);
 }
 
+/*
+Pre-Conditions: Takes in the root of a binary search tree.
+Post-Conditions: Returns an integer representing the max value of the binary search tree.
+*/
+int BSTOperations::FindMax(BSTNode * root)
+{
+	if (root->right == NULL)
+	{
+		return root->data; 
+	}
+
+	return FindMax(root->right);
+}
+
 
 

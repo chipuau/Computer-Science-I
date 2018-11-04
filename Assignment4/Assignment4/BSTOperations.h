@@ -22,5 +22,6 @@ class BSTOperations
 		static void BreadthFirst(BSTNode * root); 
 		static void FindValue(BSTNode * root, int value); 
 		static int FindMin(BSTNode * root); 
+		static int FindMax(BSTNode * root); 
 };
 
